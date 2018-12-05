@@ -105,39 +105,7 @@
 					</tbody>
 				</table>
 
-				<h3>Checkout Payment</h3>
-				<span th:if="${checkoutPaySuccess}"><h3 class="bg-info">Payment
-						Successful!</h3></span>
-				<form action="/stripe/checkoutPay" method="POST">
-					<script src="https://checkout.stripe.com/checkout.js"
-						class="stripe-button" data-key="pk_test_0kmqMXFKamjJDXOoNJ1VHsFV"
-						data-amount="100000" data-name="Stripe App Demo Charge"
-						data-description="Stripe App Demo Charge"
-						data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-						data-locale="auto">
-						
-					</script>
-				</form>
 
-				<br /> <br />
-				<h3>Elements Payment</h3>
-				<span th:if="${elementsPaySuccess}"><h3 class="bg-info">Payment
-						Successful!</h3></span>
-				<form action="/stripe/elementsPay" method="post" id="payment-form">
-					<div class="form-row">
-						<label for="card-element"> Credit or debit card </label>
-						<div id="card-element">
-							<!-- a Stripe Element will be inserted here. -->
-						</div>
-
-						<!-- Used to display Element errors -->
-						<div id="card-errors"></div>
-					</div>
-
-					<button>Submit Payment</button>
-				</form>
-
-				<br /> <br />
 				<h3>Payment Order</h3>
 				<span th:if="${paymentOrderCreated}"><h3 class="bg-info">Payment
 						Created Successful!</h3></span>
@@ -146,6 +114,21 @@
 				</form>
 
 				<br /> <br />
+
+				<div id="main">
+					<h1>QR Code Generator</h1>
+					<div class="container">
+						<form action="/generate" method="GET">
+							<div class="form-group row">
+
+									<button id="generateButton" type="submit" class="btn btn-primary">Generate</button>
+
+							</div>
+						</form>
+					</div>
+
+				</div>
+
 				<h3>Basic Subscription</h3>
 				<span th:if="${subscriptionSuccess}"><h3 class="bg-info">Subscription
 						Created Successful!</h3></span>
@@ -227,8 +210,6 @@
 
 
 	
-	<script src="/stripe.js"></script>
-	<script src="/paypal.js"></script>
-	<script src="/main.js"></script>
+
 </body>
 </html>
